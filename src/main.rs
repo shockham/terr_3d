@@ -27,8 +27,8 @@ fn main() {
         .cycle()
         .take(MAP_SIZE_3)
         .zip((0..MAP_SIZE).flat_map(|z| iter::repeat(z).take(MAP_SIZE_2)))
-        .map(|((x, y), z)| (x, y, z))
-        .collect::<Vec<(usize, usize, usize)>>();
+        .map(|((x, y), z)| (x as f32, y as f32, z as f32))
+        .collect::<Vec<(f32, f32, f32)>>();
 
     //println!("verts:{:?}", verts);
 
@@ -49,8 +49,7 @@ fn main() {
     let transforms = verts.iter()
         .zip(an_f32_vec)
         .filter(|(_, height)| *height > 0.80f32)
-        .map(|(&(x, y, z), _)| {
-            let pos = (x as f32, y as f32, z as f32);
+        .map(|(&pos, _)| {
             TransformBuilder::default()
                 .pos(pos)
                 .build()
