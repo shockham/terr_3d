@@ -1,0 +1,8 @@
+[package]
+name = "terr_3d"
+version = "0.1.0"
+authors = ["shockham <samuel.hockham@gmail.com>"]
+
+[dependencies]
+caper = { path = "../caper" }
+simdnoise = "2.0"
