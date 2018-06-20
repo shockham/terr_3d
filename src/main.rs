@@ -2,6 +2,7 @@ extern crate caper;
 extern crate simdnoise;
 #[macro_use]
 extern crate lazy_static;
+extern crate rayon;
 
 use caper::game::*;
 use caper::imgui::Ui;
@@ -9,6 +10,8 @@ use caper::input::Key;
 use caper::mesh::gen_cube;
 use caper::types::{CameraBuilder, RenderItemBuilder};
 use caper::utils::handle_fp_inputs;
+
+use rayon::prelude::*;
 
 mod terrain;
 
@@ -53,13 +56,13 @@ fn main() {
                 g.cams[0].euler_rot = pseu_cam.euler_rot;
 
                 // deal with the diff render item types
-                for ri in g.render_items_iter_mut() {
+                g.render_items_iter_mut().for_each(|ri| {
                     match ri.tag {
                         Tags::Terrain => {
                             ri.instance_transforms = terrain::get_transforms(pseu_cam.pos);
                         }
                     }
-                }
+                });
 
                 // quit
                 if g.input.keys_down.contains(&Key::Escape) {

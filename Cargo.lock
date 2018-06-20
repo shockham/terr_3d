@@ -1184,6 +1184,7 @@ version = "0.1.0"
 dependencies = [
  "caper 0.10.0",
  "lazy_static 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rayon 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "simdnoise 2.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 

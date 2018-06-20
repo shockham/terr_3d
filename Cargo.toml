@@ -7,3 +7,4 @@ authors = ["shockham <samuel.hockham@gmail.com>"]
 caper = { path = "../caper" }
 simdnoise = "2.0"
 lazy_static = "1.0"
+rayon = "1.0"
