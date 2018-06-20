@@ -1,5 +1,7 @@
 extern crate caper;
 extern crate simdnoise;
+#[macro_use]
+extern crate lazy_static;
 
 use caper::game::*;
 use caper::imgui::Ui;
@@ -10,11 +12,13 @@ use caper::utils::handle_fp_inputs;
 
 mod terrain;
 
+use terrain::HALF_MAP_SIZE;
+
 fn main() {
     // crate an instance of the game struct
     let mut game = Game::<DefaultTag>::new();
 
-    game.cams[0].pos = (50f32, 50f32, 50f32);
+    game.cams[0].pos = (HALF_MAP_SIZE, HALF_MAP_SIZE, HALF_MAP_SIZE);
 
     let mut pseu_cam = CameraBuilder::default().build().unwrap();
 
