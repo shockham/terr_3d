@@ -36,6 +36,8 @@ fn main() {
                 handle_fp_inputs(&mut g.input, &mut pseu_cam);
                 g.cams[0].euler_rot = pseu_cam.euler_rot;
 
+                g.get_render_item(0).instance_transforms = terrain::get_transforms(pseu_cam.pos);
+
                 // quit
                 if g.input.keys_down.contains(&Key::Escape) {
                     return UpdateStatus::Finish;

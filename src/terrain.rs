@@ -24,7 +24,7 @@ pub fn get_transforms(pos: (f32, f32, f32)) -> Vec<Transform> {
     };
 
     let an_f32_vec = get_3d_scaled_noise(
-        pos.0, MAP_SIZE, pos.1, MAP_SIZE, pos.2, MAP_SIZE, noise_type, 0.0, 1.0,
+        pos.1, MAP_SIZE, pos.0, MAP_SIZE, pos.2, MAP_SIZE, noise_type, 0.0, 1.0,
     );
 
     verts
