@@ -19,12 +19,13 @@ use terrain::HALF_MAP_SIZE;
 
 #[derive(Clone)]
 enum Tags {
+    NoOp,
     Terrain,
 }
 
 impl Default for Tags {
     fn default() -> Tags {
-        Tags::Terrain
+        Tags::NoOp
     }
 }
 
@@ -60,7 +61,8 @@ fn main() {
                     match ri.tag {
                         Tags::Terrain => {
                             ri.instance_transforms = terrain::get_transforms(pseu_cam.pos);
-                        }
+                        },
+                        Tags::NoOp => (),
                     }
                 });
 
