@@ -1038,15 +1038,15 @@ dependencies = [
 
 [[package]]
 name = "simdeez"
-version = "0.2.4"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "simdnoise"
-version = "2.3.4"
+version = "2.3.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "simdeez 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "simdeez 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -1165,7 +1165,7 @@ dependencies = [
  "caper 0.10.0",
  "lazy_static 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "rayon 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "simdnoise 2.3.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "simdnoise 2.3.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -1473,8 +1473,8 @@ dependencies = [
 "checksum serde_derive 1.0.69 (registry+https://github.com/rust-lang/crates.io-index)" = "dd724d68017ae3a7e63600ee4b2fdb3cad2158ffd1821d44aff4580f63e2b593"
 "checksum serde_json 1.0.22 (registry+https://github.com/rust-lang/crates.io-index)" = "84b8035cabe9b35878adec8ac5fe03d5f6bc97ff6edd7ccb96b44c1276ba390e"
 "checksum shared_library 0.1.8 (registry+https://github.com/rust-lang/crates.io-index)" = "8254bf098ce4d8d7cc7cc6de438c5488adc5297e5b7ffef88816c0a91bd289c1"
-"checksum simdeez 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)" = "614033278f3b592a0a6cbf8280e30fd40a2ec2e0b805faff3a30b8a674d8c725"
-"checksum simdnoise 2.3.4 (registry+https://github.com/rust-lang/crates.io-index)" = "2379ab3a201c31b10f751a196a6ece784e069967f09236b13a9fa6ea4ef644ec"
+"checksum simdeez 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)" = "dceedb373168a75cb36d8a201812f7ceab00898b91bb21ccb3d572572da7f525"
+"checksum simdnoise 2.3.5 (registry+https://github.com/rust-lang/crates.io-index)" = "d2fe3468eff8914fac5e60cafa6ce64cf29eca4bfd59d0c09bb05b8cc47f7da0"
 "checksum slab 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "fdeff4cd9ecff59ec7e3744cbca73dfe5ac35c2aedb2cfba8a1c715a18912e9d"
 "checksum smallvec 0.6.2 (registry+https://github.com/rust-lang/crates.io-index)" = "312a7df010092e73d6bbaf141957e868d4f30efd2bfd9bb1028ad91abec58514"
 "checksum stb_truetype 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "52ce2b38abdd11cffbc68928810248e0dd003fea489a88a404dc1ba7ae2d5538"
