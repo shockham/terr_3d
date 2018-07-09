@@ -68,6 +68,13 @@ fn main() {
                     }
                 });
 
+                // editor stuff
+                if g.input.keys_down.contains(&Key::L) {
+                    g.renderer.show_editor = true;
+                }
+                if g.input.keys_down.contains(&Key::K) {
+                    g.renderer.show_editor = false;
+                }
                 // quit
                 if g.input.keys_down.contains(&Key::Escape) {
                     return UpdateStatus::Finish;
