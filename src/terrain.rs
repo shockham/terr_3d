@@ -2,7 +2,7 @@ use caper::types::{Transform, TransformBuilder};
 use simdnoise::{get_3d_scaled_noise, NoiseType::Fbm};
 use std::iter;
 
-pub const MAP_SIZE: usize = 100;
+pub const MAP_SIZE: usize = 50;
 const MAP_SIZE_2: usize = MAP_SIZE * MAP_SIZE;
 const MAP_SIZE_3: usize = MAP_SIZE * MAP_SIZE * MAP_SIZE;
 

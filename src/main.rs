@@ -53,10 +53,12 @@ fn main() {
             |_: &Ui| {},
             |g: &mut Game<Tags>| -> UpdateStatus {
                 // update the first person inputs
-                movement::handle_inputs(&mut g.input, &mut pseu_cam);
-                g.cams[0].euler_rot = pseu_cam.euler_rot;
+                if g.input.hide_mouse {
+                    movement::handle_inputs(&mut g.input, &mut pseu_cam);
+                    g.cams[0].euler_rot = pseu_cam.euler_rot;
+                }
 
-                pseu_cam.pos.2 -= 2f32;
+                pseu_cam.pos.2 -= 0.2f32;
 
                 // deal with the diff render item types
                 g.render_items_iter_mut().for_each(|ri| {
@@ -69,11 +71,14 @@ fn main() {
                 });
 
                 // editor stuff
-                if g.input.keys_down.contains(&Key::L) {
-                    g.renderer.show_editor = true;
-                }
-                if g.input.keys_down.contains(&Key::K) {
-                    g.renderer.show_editor = false;
+                if g.input.keys_down.contains(&Key::LShift) {
+                    if g.input.keys_down.contains(&Key::L) {
+                        g.renderer.show_editor = true;
+                    }
+                    if g.input.keys_down.contains(&Key::K) {
+                        g.renderer.show_editor = false;
+                    }
+                    g.input.hide_mouse = !g.input.keys_down.contains(&Key::M);
                 }
                 // quit
                 if g.input.keys_down.contains(&Key::Escape) {
