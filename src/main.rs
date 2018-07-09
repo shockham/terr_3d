@@ -54,11 +54,11 @@ fn main() {
             |g: &mut Game<Tags>| -> UpdateStatus {
                 // update the first person inputs
                 if g.input.hide_mouse {
-                    movement::handle_inputs(&mut g.input, &mut pseu_cam);
+                    movement::handle_inputs(&mut g.input, &mut pseu_cam, g.delta);
                     g.cams[0].euler_rot = pseu_cam.euler_rot;
                 }
 
-                pseu_cam.pos.2 -= 0.2f32;
+                pseu_cam.pos.2 -= 2f32 * g.delta;
 
                 // deal with the diff render item types
                 g.render_items_iter_mut().for_each(|ri| {
