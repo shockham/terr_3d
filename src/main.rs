@@ -12,10 +12,10 @@ use caper::types::{CameraBuilder, RenderItemBuilder};
 
 use rayon::prelude::*;
 
-mod terrain;
 mod movement;
+mod terrain;
 
-use terrain::{MAP_SIZE, HALF_MAP_SIZE};
+use terrain::HALF_MAP_SIZE;
 
 #[derive(Clone)]
 enum Tags {
@@ -33,7 +33,7 @@ fn main() {
     // crate an instance of the game struct
     let mut game = Game::<Tags>::new();
 
-    game.cams[0].pos = (HALF_MAP_SIZE, HALF_MAP_SIZE, MAP_SIZE as f32);
+    game.cams[0].pos = (HALF_MAP_SIZE, HALF_MAP_SIZE, HALF_MAP_SIZE);
 
     let mut pseu_cam = CameraBuilder::default().build().unwrap();
 
@@ -58,16 +58,14 @@ fn main() {
                     g.cams[0].euler_rot = pseu_cam.euler_rot;
                 }
 
-                pseu_cam.pos.2 -= 2f32 * g.delta;
+                //pseu_cam.pos.2 -= 2f32 * g.delta;
 
                 // deal with the diff render item types
-                g.render_items_iter_mut().for_each(|ri| {
-                    match ri.tag {
-                        Tags::Terrain => {
-                            ri.instance_transforms = terrain::get_transforms(pseu_cam.pos);
-                        },
-                        Tags::NoOp => (),
+                g.render_items_iter_mut().for_each(|ri| match ri.tag {
+                    Tags::Terrain => {
+                        ri.instance_transforms = terrain::get_transforms(pseu_cam.pos);
                     }
+                    Tags::NoOp => (),
                 });
 
                 // editor stuff

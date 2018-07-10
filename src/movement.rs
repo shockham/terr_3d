@@ -1,9 +1,8 @@
-use caper::utils::build_fp_view_matrix;
-use caper::input::{Key, Input};
+use caper::input::{Input, Key};
 use caper::types::Camera;
+use caper::utils::build_fp_view_matrix;
 
 use std::f32::consts::PI;
-
 
 /// This method is where data transforms take place due to inputs
 /// for a first person camera
