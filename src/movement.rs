@@ -8,8 +8,8 @@ use std::f32::consts::PI;
 /// for a first person camera
 pub fn handle_inputs(input: &mut Input, cam: &mut Camera, delta: f32) {
     // some static vals to use the fp inputs
-    let move_speed = 10f32 * delta;
-    let mouse_speed: f32 = 10f32 * delta;
+    let move_speed = 20f32 * delta;
+    let mouse_speed: f32 = 30f32 * delta;
     const TWO_PI: f32 = PI * 2f32;
 
     let mv_matrix = build_fp_view_matrix(cam);
