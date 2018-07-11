@@ -58,7 +58,7 @@ fn main() {
                     g.cams[0].euler_rot = pseu_cam.euler_rot;
                 }
 
-                //pseu_cam.pos.2 -= 2f32 * g.delta;
+                pseu_cam.pos.2 -= 20f32 * g.delta;
 
                 // deal with the diff render item types
                 g.render_items_iter_mut().for_each(|ri| match ri.tag {

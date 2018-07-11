@@ -14,12 +14,6 @@ pub fn handle_inputs(input: &mut Input, cam: &mut Camera, delta: f32) {
 
     let mv_matrix = build_fp_view_matrix(cam);
 
-    if input.keys_down.contains(&Key::S) {
-        cam.pos.0 += mv_matrix[0][2] * move_speed;
-        cam.pos.1 += mv_matrix[1][2] * move_speed;
-        cam.pos.2 += mv_matrix[2][2] * move_speed;
-    }
-
     if input.keys_down.contains(&Key::W) {
         cam.pos.0 -= mv_matrix[0][2] * move_speed;
         cam.pos.1 -= mv_matrix[1][2] * move_speed;
