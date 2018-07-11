@@ -41,17 +41,6 @@ pub fn handle_inputs(input: &mut Input, cam: &mut Camera, delta: f32) {
     cam.euler_rot.1 = clamp_rot(cam.euler_rot.1);
 
     fn clamp_rot(num: f32) -> f32 {
-        let num = if num < 0f32 {
-            return TWO_PI - num;
-        } else {
-
-            num % TWO_PI
-        };
-
-        if num < PI {
-            num.min(HALF_PI)
-        } else {
-            num.max(PI + HALF_PI)
-        }
+        num.max(-HALF_PI).min(HALF_PI)
     }
 }
