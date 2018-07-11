@@ -33,7 +33,7 @@ fn main() {
     // crate an instance of the game struct
     let mut game = Game::<Tags>::new();
 
-    game.cams[0].pos = (HALF_MAP_SIZE, HALF_MAP_SIZE, MAP_SIZE as f32 * SCALE);
+    game.cams[0].pos = (HALF_MAP_SIZE, HALF_MAP_SIZE, (MAP_SIZE as f32 * SCALE) - 70f32);
 
     let mut pseu_cam = CameraBuilder::default().build().unwrap();
 
