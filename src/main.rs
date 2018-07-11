@@ -40,6 +40,7 @@ fn main() {
     // define some items to be rendered
     game.add_render_item(
         RenderItemBuilder::default()
+            .name("terrain".into())
             .vertices(gen_cube())
             .instance_transforms(terrain::get_transforms(pseu_cam.pos))
             .tag(Tags::Terrain)
