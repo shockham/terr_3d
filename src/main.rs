@@ -8,7 +8,7 @@ use caper::game::*;
 use caper::imgui::Ui;
 use caper::input::Key;
 use caper::mesh::gen_cube;
-use caper::types::{CameraBuilder, RenderItemBuilder};
+use caper::types::{CameraBuilder, RenderItemBuilder, MaterialBuilder};
 
 use rayon::prelude::*;
 
@@ -44,6 +44,7 @@ fn main() {
             .vertices(gen_cube())
             .instance_transforms(terrain::get_transforms(pseu_cam.pos))
             .tag(Tags::Terrain)
+            .material(MaterialBuilder::default().shader_name("dist".into()).build().unwrap())
             .build()
             .unwrap(),
     );
