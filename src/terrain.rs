@@ -37,7 +37,7 @@ pub fn get_transforms(pos: (f32, f32, f32)) -> Vec<Transform> {
     VERTS
         .iter()
         .zip(an_f32_vec)
-        .filter(|(_, height)| *height > 0.80f32)
+        .filter(|(_, height)| *height > 0.70f32)
         .map(|(&pos, _)| {
             TransformBuilder::default()
                 .pos((pos.0 * SCALE, pos.1 * SCALE, pos.2 * SCALE))
