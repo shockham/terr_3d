@@ -4,7 +4,6 @@ use caper::utils::build_fp_view_matrix;
 
 use std::f32::consts::PI;
 
-const TWO_PI: f32 = PI * 2f32;
 const HALF_PI: f32 = PI / 2f32;
 
 /// This method is where data transforms take place due to inputs
