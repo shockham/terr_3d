@@ -4,13 +4,15 @@ use caper::utils::build_fp_view_matrix;
 
 use std::f32::consts::PI;
 
+const TWO_PI: f32 = PI * 2f32;
+const HALF_PI: f32 = PI / 2f32;
+
 /// This method is where data transforms take place due to inputs
 /// for a first person camera
 pub fn handle_inputs(input: &mut Input, cam: &mut Camera, delta: f32) {
     // some static vals to use the fp inputs
     let move_speed = 20f32 * delta;
     let mouse_speed: f32 = 30f32 * delta;
-    const TWO_PI: f32 = PI * 2f32;
 
     let mv_matrix = build_fp_view_matrix(cam);
 
@@ -35,15 +37,21 @@ pub fn handle_inputs(input: &mut Input, cam: &mut Camera, delta: f32) {
     cam.euler_rot.0 += input.mouse_axis_motion.1 * mouse_speed;
     cam.euler_rot.1 += input.mouse_axis_motion.0 * mouse_speed;
 
-    cam.euler_rot.0 = fix_rot(cam.euler_rot.0);
-    cam.euler_rot.1 = fix_rot(cam.euler_rot.1);
+    cam.euler_rot.0 = clamp_rot(cam.euler_rot.0);
+    cam.euler_rot.1 = clamp_rot(cam.euler_rot.1);
 
-    // make sure euler_rot always between 0 and 2PI
-    fn fix_rot(num: f32) -> f32 {
-        if num < 0f32 {
+    fn clamp_rot(num: f32) -> f32 {
+        let num = if num < 0f32 {
             return TWO_PI - num;
-        }
+        } else {
 
-        num % TWO_PI
+            num % TWO_PI
+        };
+
+        if num < PI {
+            num.min(HALF_PI)
+        } else {
+            num.max(PI + HALF_PI)
+        }
     }
 }
