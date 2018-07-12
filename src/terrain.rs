@@ -3,7 +3,7 @@ use simdnoise::{get_3d_scaled_noise, NoiseType::Fbm};
 use std::iter;
 
 pub const SCALE: f32 = 2.5f32;
-pub const MAP_SIZE: usize = 70;
+pub const MAP_SIZE: usize = 60;
 const MAP_SIZE_2: usize = MAP_SIZE * MAP_SIZE;
 const MAP_SIZE_3: usize = MAP_SIZE * MAP_SIZE * MAP_SIZE;
 
