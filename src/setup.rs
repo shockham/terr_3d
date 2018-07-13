@@ -6,7 +6,7 @@ use caper::mesh::gen_cube;
 use terrain;
 use state::State;
 
-
+/// trait for game setup
 pub trait Setup {
     /// State type
     type S: Default;

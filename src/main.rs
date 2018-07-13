@@ -16,6 +16,7 @@ mod setup;
 mod state;
 
 use setup::Setup;
+use movement::HandleInput;
 
 #[derive(Clone)]
 pub enum Tags {
@@ -32,7 +33,6 @@ impl Default for Tags {
 fn main() {
     // crate an instance of the game struct
     let mut game = Game::<Tags>::new();
-
     let mut state = game.setup();
 
     loop {
@@ -41,10 +41,7 @@ fn main() {
             |_: &Ui| {},
             |g: &mut Game<Tags>| -> UpdateStatus {
                 // update the first person inputs
-                if g.input.hide_mouse {
-                    movement::handle_inputs(&mut g.input, &mut state.pseu_cam, g.delta);
-                    g.cams[0].euler_rot = state.pseu_cam.euler_rot;
-                }
+                g.handle_inputs(&mut state.pseu_cam);
 
                 // continually move forward
                 state.pseu_cam.pos.2 -= 20f32 * g.delta;
