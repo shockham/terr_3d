@@ -7,13 +7,13 @@ extern crate rayon;
 use caper::game::*;
 use caper::imgui::Ui;
 use caper::input::Key;
-use caper::types::CameraBuilder;
 
 use rayon::prelude::*;
 
 mod movement;
 mod terrain;
 mod setup;
+mod state;
 
 
 #[derive(Clone)]
@@ -32,10 +32,7 @@ fn main() {
     // crate an instance of the game struct
     let mut game = Game::<Tags>::new();
 
-
-    let mut pseu_cam = CameraBuilder::default().build().unwrap();
-
-    setup::setup(&mut game, pseu_cam);
+    let mut state = setup::setup(&mut game);
 
     loop {
         // run the engine update
@@ -44,16 +41,16 @@ fn main() {
             |g: &mut Game<Tags>| -> UpdateStatus {
                 // update the first person inputs
                 if g.input.hide_mouse {
-                    movement::handle_inputs(&mut g.input, &mut pseu_cam, g.delta);
-                    g.cams[0].euler_rot = pseu_cam.euler_rot;
+                    movement::handle_inputs(&mut g.input, &mut state.pseu_cam, g.delta);
+                    g.cams[0].euler_rot = state.pseu_cam.euler_rot;
                 }
 
-                pseu_cam.pos.2 -= 20f32 * g.delta;
+                state.pseu_cam.pos.2 -= 20f32 * g.delta;
 
                 // deal with the diff render item types
                 g.render_items_iter_mut().for_each(|ri| match ri.tag {
                     Tags::Terrain => {
-                        ri.instance_transforms = terrain::get_transforms(pseu_cam.pos);
+                        ri.instance_transforms = terrain::get_transforms(state.pseu_cam.pos);
                     }
                     Tags::NoOp => (),
                 });
