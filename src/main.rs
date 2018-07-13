@@ -7,18 +7,17 @@ extern crate rayon;
 use caper::game::*;
 use caper::imgui::Ui;
 use caper::input::Key;
-use caper::mesh::gen_cube;
-use caper::types::{CameraBuilder, RenderItemBuilder, MaterialBuilder};
+use caper::types::CameraBuilder;
 
 use rayon::prelude::*;
 
 mod movement;
 mod terrain;
+mod setup;
 
-use terrain::{HALF_MAP_SIZE, MAP_SIZE, SCALE};
 
 #[derive(Clone)]
-enum Tags {
+pub enum Tags {
     NoOp,
     Terrain,
 }
@@ -33,21 +32,10 @@ fn main() {
     // crate an instance of the game struct
     let mut game = Game::<Tags>::new();
 
-    game.cams[0].pos = (HALF_MAP_SIZE, HALF_MAP_SIZE, (MAP_SIZE as f32 * SCALE) - 60f32);
 
     let mut pseu_cam = CameraBuilder::default().build().unwrap();
 
-    // define some items to be rendered
-    game.add_render_item(
-        RenderItemBuilder::default()
-            .name("terrain".into())
-            .vertices(gen_cube())
-            .instance_transforms(terrain::get_transforms(pseu_cam.pos))
-            .tag(Tags::Terrain)
-            .material(MaterialBuilder::default().shader_name("dist".into()).build().unwrap())
-            .build()
-            .unwrap(),
-    );
+    setup::setup(&mut game, pseu_cam);
 
     loop {
         // run the engine update
