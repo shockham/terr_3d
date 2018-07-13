@@ -1,8 +1,8 @@
+use super::Tags;
+use caper::game::Game;
 use caper::input::Key;
 use caper::types::Camera;
 use caper::utils::build_fp_view_matrix;
-use caper::game::Game;
-use super::Tags;
 
 use std::f32::consts::PI;
 

@@ -9,13 +9,13 @@ use caper::imgui::Ui;
 use caper::input::Key;
 
 mod movement;
-mod terrain;
 mod setup;
 mod state;
+mod terrain;
 mod update;
 
-use setup::Setup;
 use movement::HandleInput;
+use setup::Setup;
 use update::ItemUpdate;
 
 #[derive(Clone)]

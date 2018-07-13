@@ -1,5 +1,5 @@
-use caper::game::*;
 use super::Tags;
+use caper::game::*;
 use state::State;
 use terrain;
 
