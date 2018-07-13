@@ -15,6 +15,7 @@ mod terrain;
 mod setup;
 mod state;
 
+use setup::Setup;
 
 #[derive(Clone)]
 pub enum Tags {
@@ -32,7 +33,7 @@ fn main() {
     // crate an instance of the game struct
     let mut game = Game::<Tags>::new();
 
-    let mut state = setup::setup(&mut game);
+    let mut state = game.setup();
 
     loop {
         // run the engine update
@@ -45,6 +46,7 @@ fn main() {
                     g.cams[0].euler_rot = state.pseu_cam.euler_rot;
                 }
 
+                // continually move forward
                 state.pseu_cam.pos.2 -= 20f32 * g.delta;
 
                 // deal with the diff render item types
