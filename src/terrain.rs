@@ -1,6 +1,7 @@
 use caper::types::{Transform, TransformBuilder};
 use simdnoise::{get_3d_scaled_noise, NoiseType::Fbm};
 use std::iter;
+use rayon::prelude::*;
 
 pub const SCALE: f32 = 2.5f32;
 pub const MAP_SIZE: usize = 60;
@@ -35,7 +36,7 @@ pub fn get_transforms(pos: (f32, f32, f32)) -> Vec<Transform> {
     );
 
     VERTS
-        .iter()
+        .par_iter()
         .zip(an_f32_vec)
         .filter(|(_, height)| *height > 0.7f32 && *height < 0.82f32)
         .map(|(&pos, _)| {
