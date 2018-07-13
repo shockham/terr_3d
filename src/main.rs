@@ -8,15 +8,15 @@ use caper::game::*;
 use caper::imgui::Ui;
 use caper::input::Key;
 
-use rayon::prelude::*;
-
 mod movement;
 mod terrain;
 mod setup;
 mod state;
+mod update;
 
 use setup::Setup;
 use movement::HandleInput;
+use update::ItemUpdate;
 
 #[derive(Clone)]
 pub enum Tags {
@@ -43,16 +43,7 @@ fn main() {
                 // update the first person inputs
                 g.handle_inputs(&mut state.pseu_cam);
 
-                // continually move forward
-                state.pseu_cam.pos.2 -= 20f32 * g.delta;
-
-                // deal with the diff render item types
-                g.render_items_iter_mut().for_each(|ri| match ri.tag {
-                    Tags::Terrain => {
-                        ri.instance_transforms = terrain::get_transforms(state.pseu_cam.pos);
-                    }
-                    Tags::NoOp => (),
-                });
+                g.item_update(&mut state);
 
                 // editor stuff
                 if g.input.keys_down.contains(&Key::LShift) {
