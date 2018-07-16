@@ -25,7 +25,7 @@ lazy_static! {
 
 pub fn get_transforms(pos: (f32, f32, f32)) -> Vec<Transform> {
     let noise_type = Fbm {
-        freq: 0.04,
+        freq: 0.03,
         lacunarity: 0.5,
         gain: 2.0,
         octaves: 1,

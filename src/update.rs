@@ -18,6 +18,9 @@ impl ItemUpdate for Game<Tags> {
         self.render_items_iter_mut().for_each(|ri| match ri.tag {
             Tags::Terrain => {
                 ri.instance_transforms = terrain::get_transforms(state.pseu_cam.pos);
+                if ri.instance_transforms.par_iter().any(|&t| t.pos == (75f32, 75f32, 90f32)) {
+                    println!("DEAD");
+                }
             }
             Tags::NoOp => (),
         });
