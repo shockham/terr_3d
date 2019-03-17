@@ -1,5 +1,5 @@
 use caper::types::{Transform, TransformBuilder};
-use simdnoise::{get_3d_scaled_noise, NoiseType::Fbm};
+use simdnoise::*;
 use std::iter;
 use rayon::prelude::*;
 
@@ -24,16 +24,15 @@ lazy_static! {
 }
 
 pub fn get_transforms(pos: (f32, f32, f32)) -> Vec<Transform> {
-    let noise_type = Fbm {
-        freq: 0.03,
-        lacunarity: 0.5,
-        gain: 2.0,
-        octaves: 1,
-    };
 
-    let an_f32_vec = get_3d_scaled_noise(
-        pos.1, MAP_SIZE, pos.0, MAP_SIZE, pos.2, MAP_SIZE, noise_type, 0.0, 1.0,
-    );
+    let an_f32_vec = NoiseBuilder::fbm_3d_offset(
+            pos.1, MAP_SIZE, pos.0, MAP_SIZE, pos.2, MAP_SIZE
+        )
+        .with_freq(0.03)
+        .with_lacunarity(0.5)
+        .with_gain(2.0)
+        .with_octaves(1)
+        .generate_scaled(0f32, 1f32);
 
     VERTS
         .par_iter()

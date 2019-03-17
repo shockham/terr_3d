@@ -29,13 +29,13 @@ impl Setup for Game<Tags> {
         // define some items to be rendered
         self.add_render_item(
             RenderItemBuilder::default()
-                .name("terrain".into())
+                .name("terrain")
                 .vertices(gen_cube())
                 .instance_transforms(terrain::get_transforms(state.pseu_cam.pos))
                 .tag(Tags::Terrain)
                 .material(
                     MaterialBuilder::default()
-                        .shader_name("dist".into())
+                        .shader_name("dist")
                         .build()
                         .unwrap(),
                 )

@@ -5,6 +5,6 @@ authors = ["shockham <samuel.hockham@gmail.com>"]
 
 [dependencies]
 caper = { git = "https://github.com/shockham/caper" }
-simdnoise = "2.0"
+simdnoise = "3.0"
 lazy_static = "1.0"
 rayon = "1.0"
