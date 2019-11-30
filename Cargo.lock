@@ -1530,18 +1530,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "simdeez"
-version = "0.6.6"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
+ "cfg-if 0.1.10 (registry+https://github.com/rust-lang/crates.io-index)",
  "paste 0.1.6 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "simdnoise"
-version = "3.1.3"
+version = "3.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "simdeez 0.6.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "simdeez 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -1680,7 +1681,7 @@ dependencies = [
  "caper 0.11.2 (git+https://github.com/shockham/caper)",
  "lazy_static 1.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rayon 1.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "simdnoise 3.1.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "simdnoise 3.1.4 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -2107,8 +2108,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum sha1 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)" = "2579985fda508104f7587689507983eadd6a6e84dd35d6d115361f530916fa0d"
 "checksum shared_library 0.1.9 (registry+https://github.com/rust-lang/crates.io-index)" = "5a9e7e0f2bfae24d8a5b5a66c5b257a83c7412304311512a0c054cd5e619da11"
 "checksum shlex 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7fdf1b9db47230893d76faad238fd6097fd6d6a9245cd7a4d90dbd639536bbd2"
-"checksum simdeez 0.6.6 (registry+https://github.com/rust-lang/crates.io-index)" = "d2547b5815deedf2a9051b81bd459997f2cfdeb37cee24c2fb4017ae77f5a7d2"
-"checksum simdnoise 3.1.3 (registry+https://github.com/rust-lang/crates.io-index)" = "009d403bfa279d9bfe3a21dd0da312d7d2975c513ef7d8c4a1da041ae66a8f6c"
+"checksum simdeez 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)" = "a818d354713feb3fe6db6df2b5232f4a3901c6533c686b4376aaf4b93adb9c5f"
+"checksum simdnoise 3.1.4 (registry+https://github.com/rust-lang/crates.io-index)" = "0d12c11e4f55bf8237d46300c7b616068bff75f061927816f41355e1d0addb02"
 "checksum slab 0.4.2 (registry+https://github.com/rust-lang/crates.io-index)" = "c111b5bd5695e56cffe5129854aa230b39c93a305372fdbb2668ca2394eea9f8"
 "checksum slice-deque 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)" = "ffddf594f5f597f63533d897427a570dbaa9feabaaa06595b74b71b7014507d7"
 "checksum smallvec 0.6.13 (registry+https://github.com/rust-lang/crates.io-index)" = "f7b0758c52e15a8b5e3691eae6cc559f08eee9406e548a4477ba4e67770a82b6"
