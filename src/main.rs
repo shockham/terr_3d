@@ -32,12 +32,12 @@ impl Default for Tags {
 
 fn main() {
     // crate an instance of the game struct
-    let mut game = Game::<Tags>::new();
+    let (mut game, event_loop) = Game::<Tags>::new();
     let mut state = game.setup();
 
-    loop {
-        // run the engine update
-        let status = game.update(
+    // run the engine update
+    start_loop(event_loop, move |events| {
+        game.update(
             |_: &Ui| {},
             |g: &mut Game<Tags>| -> UpdateStatus {
                 // update the first person inputs
@@ -62,10 +62,7 @@ fn main() {
 
                 UpdateStatus::Continue
             },
-        );
-
-        if let UpdateStatus::Finish = status {
-            break;
-        }
-    }
+            events,
+        )
+    });
 }

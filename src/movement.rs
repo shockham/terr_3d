@@ -41,8 +41,8 @@ impl HandleInput for Game<Tags> {
                 cam.pos.2 -= mv_matrix[2][0] * move_speed;
             }
 
-            cam.euler_rot.0 += self.input.mouse_axis_motion.1 * mouse_speed;
-            cam.euler_rot.1 += self.input.mouse_axis_motion.0 * mouse_speed;
+            cam.euler_rot.0 += self.input.mouse_delta.1 * mouse_speed;
+            cam.euler_rot.1 += self.input.mouse_delta.0 * mouse_speed;
 
             cam.euler_rot.0 = clamp_rot(cam.euler_rot.0);
             cam.euler_rot.1 = clamp_rot(cam.euler_rot.1);
