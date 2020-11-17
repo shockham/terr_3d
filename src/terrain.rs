@@ -24,7 +24,6 @@ lazy_static! {
 }
 
 pub fn get_transforms(pos: (f32, f32, f32)) -> Vec<Transform> {
-
     let an_f32_vec = NoiseBuilder::fbm_3d_offset(
             pos.1, MAP_SIZE, pos.0, MAP_SIZE, pos.2, MAP_SIZE
         )
