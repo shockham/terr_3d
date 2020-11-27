@@ -18,7 +18,7 @@ impl HandleInput for Game<Tags> {
     fn handle_inputs(&mut self, cam: &mut Camera) {
         if self.input.hide_mouse {
             // some static vals to use the fp inputs
-            let move_speed = 15f32 * self.delta;
+            let move_speed = 50f32 * self.delta;
             let mouse_speed: f32 = 30f32 * self.delta;
 
             let mv_matrix = build_fp_view_matrix(cam);
