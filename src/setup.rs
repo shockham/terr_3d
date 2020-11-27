@@ -46,7 +46,7 @@ impl Setup for Game<Tags> {
 
         self.renderer.post_effect.post_shader_options = PostShaderOptionsBuilder::default()
             .chrom_amt(1f32)
-            .blur_amt(2f32)
+            .blur_amt(5f32)
             .blur_radius(2f32)
             .bokeh(true)
             .bokeh_focal_depth(0.45f32)
