@@ -1,7 +1,7 @@
 use super::Tags;
 use caper::game::*;
 use caper::mesh::gen_cube;
-use caper::types::{MaterialBuilder, RenderItemBuilder};
+use caper::types::{MaterialBuilder, RenderItemBuilder, TextItemBuilder};
 use caper::posteffect::PostShaderOptionsBuilder;
 use state::State;
 use terrain;
@@ -40,6 +40,15 @@ impl Setup for Game<Tags> {
                         .build()
                         .unwrap(),
                 )
+                .build()
+                .unwrap(),
+        );
+
+        self.add_text_item(
+            TextItemBuilder::default()
+                .text("")
+                .pos((-0.35f32, 0f32, 0f32))
+                .scale((10f32, 10f32, 1f32))
                 .build()
                 .unwrap(),
         );

@@ -27,5 +27,9 @@ impl ItemUpdate for Game<Tags> {
         state.pseu_cam.pos.2 -= 20f32 * self.delta;
         // TODO: fix this being set by whether the terrain is active
         state.alive = self.get_render_item(0).active;
+
+        if state.alive == false {
+            self.get_text_item(0).text = "YOU DIED".to_string();
+        }
     }
 }

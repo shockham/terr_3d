@@ -45,6 +45,15 @@ fn main() {
 
                 g.item_update(&mut state);
 
+                // TODO refactor this so something more appropriate
+                if state.alive == false && g.input.keys_down.contains(&Key::R) {
+                    state.alive = true;
+                    // reset objects
+                    g.get_render_item(0).active = true;
+                    g.get_text_item(0).text = "".to_string();
+                    state.pseu_cam.pos = (0f32, 0f32, 0f32);
+                }
+
                 // editor stuff
                 if g.input.keys_down.contains(&Key::LShift) {
                     if g.input.keys_down.contains(&Key::L) {
