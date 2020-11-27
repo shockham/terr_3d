@@ -2,6 +2,7 @@ use super::Tags;
 use caper::game::*;
 use caper::mesh::gen_cube;
 use caper::types::{MaterialBuilder, RenderItemBuilder};
+use caper::posteffect::PostShaderOptionsBuilder;
 use state::State;
 use terrain;
 use terrain::{HALF_MAP_SIZE, MAP_SIZE, SCALE};
@@ -42,6 +43,17 @@ impl Setup for Game<Tags> {
                 .build()
                 .unwrap(),
         );
+
+        self.renderer.post_effect.post_shader_options = PostShaderOptionsBuilder::default()
+            .chrom_amt(1f32)
+            .blur_amt(2f32)
+            .blur_radius(2f32)
+            .bokeh(true)
+            .bokeh_focal_depth(0.45f32)
+            .bokeh_focal_width(0.4f32)
+            .color_offset((1f32, 1f32, 1f32, 1f32))
+            .build()
+            .unwrap();
 
         state
     }
