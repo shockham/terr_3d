@@ -38,6 +38,7 @@ impl Setup for Game<Tags> {
                 .vertices(gen_cube())
                 .instance_transforms(terrain::get_transforms(state.pseu_cam.pos))
                 .tag(Tags::Terrain)
+                .active(false)
                 .material(
                     MaterialBuilder::default()
                         .shader_name("asteroids")
@@ -54,6 +55,16 @@ impl Setup for Game<Tags> {
                 .text("")
                 .pos((-0.35f32, 0f32, 0f32))
                 .scale((10f32, 10f32, 1f32))
+                .color((0.2f32, 0f32, 0f32, 1f32))
+                .build()
+                .unwrap(),
+        );
+
+        self.add_text_item(
+            TextItemBuilder::default()
+                .text("")
+                .pos((-1f32, -1f32, 0f32))
+                .scale((5f32, 5f32, 1f32))
                 .color((0.2f32, 0f32, 0f32, 1f32))
                 .build()
                 .unwrap(),

@@ -23,13 +23,19 @@ impl ItemUpdate for Game<Tags> {
             Tags::NoOp => (),
         });
 
-        // continually move forward
-        state.pseu_cam.pos.2 -= 20f32 * self.delta;
         // TODO: fix this being set by whether the terrain is active
         state.alive = self.get_render_item(0).active;
 
         if state.alive == false {
-            self.get_text_item(0).text = "YOU DIED".to_string();
+            self.get_text_item(0).text = if state.pseu_cam.pos.2 < 0f32 {
+                "YOU DIED".to_string()
+            } else {
+                "".to_string()
+            };
+        } else {
+            self.get_text_item(1).text = format!("score: {:.0}", state.pseu_cam.pos.2.abs());
+            // continually move forward
+            state.pseu_cam.pos.2 -= 20f32 * self.delta;
         }
     }
 }

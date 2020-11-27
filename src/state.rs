@@ -9,7 +9,7 @@ impl Default for State {
     fn default() -> State {
         State {
             pseu_cam: CameraBuilder::default().build().unwrap(),
-            alive: true,
+            alive: false,
         }
     }
 }
