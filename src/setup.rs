@@ -7,6 +7,7 @@ use caper::utils::create_skydome;
 use state::State;
 use terrain;
 use terrain::{HALF_MAP_SIZE, MAP_SIZE, SCALE};
+use shaders::add_game_shaders;
 
 /// trait for game setup
 pub trait Setup {
@@ -20,6 +21,8 @@ impl Setup for Game<Tags> {
     type S = State;
     /// Setup the game
     fn setup(&mut self) -> Self::S {
+        // add some shaders
+        add_game_shaders(&self.renderer.display, &mut self.renderer.shaders);
         // create init state
         let state = Self::S::default();
         // set the cam pos
@@ -37,20 +40,21 @@ impl Setup for Game<Tags> {
                 .tag(Tags::Terrain)
                 .material(
                     MaterialBuilder::default()
-                        .shader_name("dist")
+                        .shader_name("asteroids")
                         .build()
                         .unwrap(),
                 )
                 .build()
                 .unwrap(),
         );
-        self.add_render_item(create_skydome("height"));
+        self.add_render_item(create_skydome("skydome"));
 
         self.add_text_item(
             TextItemBuilder::default()
                 .text("")
                 .pos((-0.35f32, 0f32, 0f32))
                 .scale((10f32, 10f32, 1f32))
+                .color((0.2f32, 0f32, 0f32, 1f32))
                 .build()
                 .unwrap(),
         );

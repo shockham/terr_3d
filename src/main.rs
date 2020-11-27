@@ -13,6 +13,7 @@ mod setup;
 mod state;
 mod terrain;
 mod update;
+mod shaders;
 
 use movement::HandleInput;
 use setup::Setup;
