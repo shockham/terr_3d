@@ -44,7 +44,9 @@ fn main() {
                 // update the first person inputs
                 g.handle_inputs(&mut state.pseu_cam);
 
-                g.item_update(&mut state);
+                if state.alive == true {
+                    g.item_update(&mut state);
+                }
 
                 // TODO refactor this so something more appropriate
                 if state.alive == false && g.input.keys_down.contains(&Key::R) {
