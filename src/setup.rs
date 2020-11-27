@@ -3,6 +3,7 @@ use caper::game::*;
 use caper::mesh::gen_cube;
 use caper::types::{MaterialBuilder, RenderItemBuilder, TextItemBuilder};
 use caper::posteffect::PostShaderOptionsBuilder;
+use caper::utils::create_skydome;
 use state::State;
 use terrain;
 use terrain::{HALF_MAP_SIZE, MAP_SIZE, SCALE};
@@ -43,6 +44,7 @@ impl Setup for Game<Tags> {
                 .build()
                 .unwrap(),
         );
+        self.add_render_item(create_skydome("height"));
 
         self.add_text_item(
             TextItemBuilder::default()
