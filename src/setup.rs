@@ -53,7 +53,7 @@ impl Setup for Game<Tags> {
         self.add_text_item(
             TextItemBuilder::default()
                 .text("")
-                .pos((-0.35f32, 0f32, 0f32))
+                .pos((-0.38f32, 0f32, 0f32))
                 .scale((10f32, 10f32, 1f32))
                 .color((0.2f32, 0f32, 0f32, 1f32))
                 .build()
@@ -64,7 +64,7 @@ impl Setup for Game<Tags> {
             TextItemBuilder::default()
                 .text("")
                 .pos((-1f32, -1f32, 0f32))
-                .scale((5f32, 5f32, 1f32))
+                .scale((3f32, 3f32, 1f32))
                 .color((0.2f32, 0f32, 0f32, 1f32))
                 .build()
                 .unwrap(),
