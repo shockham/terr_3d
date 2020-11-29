@@ -36,7 +36,7 @@ impl ItemUpdate for Game<Tags> {
         } else {
             self.get_text_item(1).text = format!("score: {:.0}", state.pseu_cam.pos.2.abs());
             // continually move forward
-            state.pseu_cam.pos.2 -= 20f32 * self.delta;
+            state.pseu_cam.pos.2 -= 50f32 * self.delta;
         }
     }
 }
