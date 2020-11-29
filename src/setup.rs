@@ -63,7 +63,7 @@ impl Setup for Game<Tags> {
         self.add_text_item(
             TextItemBuilder::default()
                 .text("")
-                .pos((-1f32, -1f32, 0f32))
+                .pos((-0.94375f32, -0.9f32, 0f32))
                 .scale((3f32, 3f32, 1f32))
                 .color((0.2f32, 0f32, 0f32, 1f32))
                 .build()
