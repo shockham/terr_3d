@@ -54,6 +54,7 @@ fn main() {
                     // reset objects
                     g.get_render_item(0).active = true;
                     g.get_text_item(0).text = "".to_string();
+                    g.get_text_item(2).active = false;
                     state.pseu_cam.pos = (0f32, 0f32, 0f32);
                 }
 
