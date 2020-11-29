@@ -61,7 +61,7 @@ impl Setup for Game<Tags> {
                 .vertices(gen_quad())
                 .instance_transforms(vec![
                     TransformBuilder::default()
-                        .pos((HALF_MAP_SIZE, HALF_MAP_SIZE, self.cams[0].pos.2 - 0.4f32))
+                        .pos((HALF_MAP_SIZE, HALF_MAP_SIZE, self.cams[0].pos.2 - 0.35f32))
                         .scale((-1.6f32, 0.9f32, 1f32))
                         .build()
                         .unwrap()
